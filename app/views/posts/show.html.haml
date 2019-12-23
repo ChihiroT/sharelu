@@ -1,0 +1,8 @@
+.show-wrapper
+  = render "header"
+  .main-box
+    = render "map"
+    .img
+      = image_tag @post.image.url
+
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['API_KEY']}&callback=initMap"}

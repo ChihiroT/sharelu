@@ -1,0 +1,10 @@
+%div.map#gmap
+/ 地図を表示する領域
+/ 地図の情報を記述する領域 display: none で非表示に
+#map_params{:style => "display: none;"}
+  %p{:id => "lat"}
+    = @post.latitude
+  %p{:id => "lng"}
+    = @post.longitude
+  %p{:id => "zoom"} 16
+  %p{:id => "tooltip"} Hello from Map!

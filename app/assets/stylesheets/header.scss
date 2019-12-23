@@ -1,0 +1,25 @@
+header {
+  background-color: white;
+  .container.logo {
+    height: auto;
+    width: 300px;
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  nav.navbar {
+    background-color: #FFFF8d;
+    a.navbar-brand {
+      font-family: "FreeStyle";
+      color: #8b008b;
+    }
+    li a {
+      font-family: 'Arial Black',sans-serif;
+      color: #2979FF;
+    }
+    li.col-auto a#post {
+      color: #F50057;
+    }
+  }
+}

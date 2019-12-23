@@ -1,0 +1,7 @@
+= render "header"
+.wrapper
+  = render "mainvisual"
+  .py-6
+    .row.main
+      - @posts.each do |post|
+        = render partial: "main", locals: { post: post }

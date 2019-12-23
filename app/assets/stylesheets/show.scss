@@ -1,0 +1,24 @@
+.show-wrapper {
+  background-image: url(wrapper.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  .main-box {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: 100px auto;
+    .map {
+      height: 400px;
+      width: 400px;
+    }
+    .img {
+      width: 400px;
+      margin: auto 0;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  
+}

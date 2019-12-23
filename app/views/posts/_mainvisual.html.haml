@@ -1,0 +1,26 @@
+.py-4
+  .container
+    #main_visual.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#main_visual"}
+        %li{"data-slide-to" => "1", "data-target" => "#main_visual"}
+        %li{"data-slide-to" => "2", "data-target" => "#main_visual"}
+      .carousel-inner
+        .carousel-item.active
+          %img.img-fluid{:alt => "メタセコイヤ", :img => "", :src => "assets/mainv1.jpg"}/
+          .carousel-caption.d-none.d-md-block
+            %h5 あなたが旅した場所の風景を投稿してね。季節の移り変りを楽しもう。
+        .carousel-item
+          %img.img-fluid{:alt => "ランチ写真", :img => "", :src => "assets/mainv2.jpg"}/
+          .carousel-caption.d-none.d-md-block
+            %h5 美味しいお店の情報もシェアしてね。
+        .carousel-item
+          %img.img-fluid{:alt => "コーギー", :src => "assets/mainv3.jpg"}/
+          .carousel-caption.d-none.d-md-block
+            %h5 決定的瞬間をシェアしてみませんか？
+      %a.carousel-control-prev{"data-slide" => "prev", :href => "#main_visual", :role => "button"}
+        %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+        %span.sr-only 前に戻る
+      %a.carousel-control-next{"data-slide" => "next", :href => "#main_visual", :role => "button"}
+        %span.carousel-control-next-icon{"aria-hidden" => "true"}
+        %span.sr-only 次に進む
