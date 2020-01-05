@@ -10,13 +10,15 @@
         #navbar-content.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
             %li.col-auto.active
-              %a.nav-link{:href => "#"}
+              = link_to root_path, class: "nav-link" do
                 Top
                 %span.sr-only
             %li.col-auto
-              %a.nav-link{:href => "#"} Log In
+              = link_to new_user_registration_path, class: "nav-link" do
+                Log In
             %li.col-auto
-              %a.nav-link{:href => "#"} Sign Up
+              = link_to new_user_registration_path, class: "nav-link" do
+                Sign Up
             %li.col-auto
               %a.nav-link{:href => "#"} Log Out
             %li.col-auto.offset-md-10
