@@ -1,11 +1,19 @@
 %h2.signup_head
   新規登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :post}) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label "メールアドレス"
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label "ニックネーム"
+    %br/
+    = f.text_field :name
+  .field
+    = f.label "自己紹介文"
+    %br/
+    = f.text_field :introduction, placeholder: "何か入力してください"
   .field
     = f.label "パスワード"
     %br/
@@ -15,5 +23,5 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
   .actions
-    = f.submit "Sign up"
+    = f.submit "登録"
 = render "devise/shared/links"
