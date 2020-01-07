@@ -4,24 +4,31 @@
       = image_tag("logo.png")
     %nav.navbar.navbar-expand-md.navbar-darkbg-dark.sticky-top
       .container.list
-        %a.navbar-brand.py-1{:href => "posts#index"} ShareLu
-        %button.navbar-toggler{"aria-controls" => "navbar-content", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar-content", "data-toggle" => "collapse", :type => "button"}
+        = link_to root_path, class:"navbar-brand py-1" do
+          ShareLu
+        %button.navbar-toggler
           %span.navbar-toggler-icon
         #navbar-content.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
-            %li.col-auto.active
-              = link_to root_path, class: "nav-link" do
-                Top
-                %span.sr-only
-            %li.col-auto
-              = link_to new_user_registration_path, class: "nav-link" do
-                Log In
-            %li.col-auto
-              = link_to new_user_registration_path, class: "nav-link" do
-                Sign Up
-            %li.col-auto
-              %a.nav-link{:href => "#"} Log Out
-            %li.col-auto.offset-md-10
-              = link_to "posts/new", class: "nav-link", id: "post" do
-                = fa_icon 'camera'
-                投稿
+            - if user_signed_in?
+              %li.col-auto
+                = link_to "", class: "nav-link" do
+                  My Page
+              %li.col-auto
+                = link_to destroy_user_session_path, method: :delete, class: "nav-link" do
+                  Log Out
+              %li.col-auto.offset-md-10
+                = link_to new_post_path, class: "nav-link", id: "post" do
+                  = fa_icon 'camera'
+                  投稿
+            - else
+              %li.col-auto.active
+                = link_to root_path, class: "nav-link" do
+                  Top
+                  %span.sr-only
+              %li.col-auto
+                = link_to new_user_session_path, class: "nav-link" do
+                  Log In
+              %li.col-auto
+                = link_to new_user_registration_path, class: "nav-link" do
+                  Sign Up
