@@ -1,27 +1,40 @@
-%h2.signup_head
-  新規登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :post}) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label "メールアドレス"
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label "ニックネーム"
-    %br/
-    = f.text_field :name
-  .field
-    = f.label "自己紹介文"
-    %br/
-    = f.text_field :introduction, placeholder: "何か入力してください"
-  .field
-    = f.label "パスワード"
-    %br/
-    = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
-  .field
-    = f.label "パスワード(確認)"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
-  .actions
-    = f.submit "登録"
-= render "devise/shared/links"
+.wrapper
+  = render "posts/header"
+  .signup_form
+    .signup_form__head
+      新規登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :post}) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label "メールアドレス"
+        %span
+          必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label "ニックネーム"
+        %span
+          必須
+        %br/
+        = f.text_field :name
+      .field
+        = f.label "自己紹介文"
+        %span
+          必須
+        %br/
+        = f.text_area :introduction, placeholder: "何か入力してください"
+      .field
+        = f.label "パスワード"
+        %span
+          必須
+        %br/
+        = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+      .field
+        = f.label "パスワード(確認)"
+        %span
+          必須
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+      .actions
+        = f.submit "登 録", class: "button"
+    = render "devise/shared/links"

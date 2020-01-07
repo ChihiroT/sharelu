@@ -4,8 +4,9 @@
       = image_tag("logo.png")
     %nav.navbar.navbar-expand-md.navbar-darkbg-dark.sticky-top
       .container.list
-        %a.navbar-brand.py-1{:href => "posts#index"} ShareLu
-        %button.navbar-toggler{"aria-controls" => "navbar-content", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar-content", "data-toggle" => "collapse", :type => "button"}
+        = link_to root_path, class:"navbar-brand py-1" do
+          ShareLu
+        %button.navbar-toggler
           %span.navbar-toggler-icon
         #navbar-content.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
