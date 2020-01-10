@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_params, only: [:show]
 
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").page(params[:page]).per(6)
   end
 
   def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :image, :text, :longitude, :latitude)
+    params.require(:post).permit(:title, :image, :text, :longitude, :latitude).merge(user_id: current_user.id)
   end
 
   def set_params

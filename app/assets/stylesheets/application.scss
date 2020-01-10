@@ -15,6 +15,7 @@
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "mixin/reset";
 @import "mixin/variable";
 @import "mixin/fonts";
 @import "font-awesome-sprockets";

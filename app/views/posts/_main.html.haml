@@ -1,9 +1,5 @@
-.col-4
-  =link_to post_path(post.id), class: "card.p-1.thumbnail" do
-    .card-header{:style => "background-color: white;"}
-      .title
-        = post.title
-      .card-header
-        =image_tag post.image.url, class: "card-img-top", style: "max-height: 20rem;"
-      .card-body
-        = post.text
+=link_to post_path(post.id), class: "pict" do
+  .img_box
+    =image_tag post.image.url, class: "upper_img"
+  .title
+    = post.title
