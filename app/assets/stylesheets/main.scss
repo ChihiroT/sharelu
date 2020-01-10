@@ -1,24 +1,57 @@
 .row.main {
-  padding: 2rem;
+  padding: 4rem;
   margin-right: 15px;
   margin-left: 15px;
+  .picts {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    .pict:nth-child(1) {
+      transform: rotate(-25deg);
+    }
+    .pict:nth-child(2) {
+      transform: rotate(5deg);
+    }
+    .pict:nth-child(3) {
+      transform: rotate(20deg);
+    }
+    .pict:nth-child(4) {
+      transform: rotate(15deg);
+    }
+    .pict:nth-child(5) {
+      transform: rotate(-25deg);
+    }
+    .pict:nth-child(6) {
+      transform: rotate(-10deg);
+    }
+    .pict {
+      height: 380px;
+      width: 400px;
+      background-color: #fff;
+      filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+      padding: 15px;
+      display: block;
+      // margin: 10px;
+      .img_box {
+        width: 370px;
+        height: 300px;
+        .upper_img {
+          width:auto;
+          height:auto;
+          max-width:100%;
+          max-height:100%;
+          display: block;
+          margin: 0 auto ;
+        }
+      }
+      .title {
+        text-align: center;
+        margin-top: 10px;
+        color: black;
+        font-family: "游ゴシック体"
+      }
+    }
+  }
 }
 
-.title {
-  padding-bottom: 10px;
-}
-
-.tab-content {
-  height: 20rem;
-}
-i.fa.fa-image {
-  color: #5bd1d7;
-}
-
-i.fa.fa-map-marker {
-  color: red;
-  font-size: 20px;
-}
-.col-4 {
-  padding-bottom: 15px;
-}

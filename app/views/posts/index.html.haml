@@ -3,5 +3,8 @@
   = render "mainvisual"
   .py-6
     .row.main
-      - @posts.each do |post|
-        = render partial: "main", locals: { post: post }
+      .picts
+        - @posts.each do |post|
+          = render partial: "main", locals: { post: post }
+    .pagenate
+      = paginate(@posts, window: 2)
