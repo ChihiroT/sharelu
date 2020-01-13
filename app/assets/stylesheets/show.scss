@@ -2,22 +2,137 @@
   background-image: image-url('wrapper.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh;
-  .main-box {
-    display: flex;
-    justify-content: space-between;
-    width: 900px;
-    margin: 100px auto;
-    .map {
-      height: 400px;
-      width: 400px;
+  padding-bottom: 50px;
+  .card {
+    width: 500px;
+    margin: 40px auto;
+    padding: 0.75rem 1.25rem;
+    img{
+      width: 100%;
     }
-    .card {
-      width: 400px;
-      margin: auto 0;
-      padding: 0.75rem 1.25rem;
-      img{
+  }
+  .about {
+    width: 700px;
+    margin: auto;
+    padding: 0 0 60px 0;
+    p {
+      font-size: 20px;
+      margin: 5px;
+      color: #4908cb;
+    }
+  }
+  .map_box {
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    .map {
+      width: 90%;
+      height: 90%;
+      margin: 30px auto;
+    }
+  }
+  .comments {
+    width: 700px;
+    margin: auto;
+    &__box {
+      padding: 24px;
+      background-color: rgba(117,212,242,0.8);
+      margin-top: 30px;
+      &__content {
+        list-style: none;
+        margin-bottom: 20px;
+          li {
+            margin: 60px 0 0;
+            .user-icon-area {
+              float: left;
+              text-decoration: none;
+              width: 40px;
+              height: 40px;
+              color: #333;
+              font-size: 14px;
+              font-weight: bold;
+              position: relative;
+              top: -20px;
+              .user-icon {
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+                border-radius: 50%;
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                }
+              }
+              .user-name {
+                width: 600px;
+                min-width: 600px;
+                white-space: nowrap;
+                position: absolute;
+                top: 0;
+                left: 56px;
+              }
+            }
+            .comment {
+              width: 600px;
+              padding: 16px;
+              background-color: #eef0f4;
+              border-radius: 15px;
+              line-height: 1.5;
+              float: right;
+              position: relative;
+              &__text {
+                display: inline-block;
+              }
+            }
+            .comment::before {
+              content: '';
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              left: -10px;
+              top: 0;
+              border: 15px solid transparent;
+              border-top-color: #eef0f4;
+            }
+            .icons {
+              margin: 8px 0 0;
+              .time {
+                color: #aaa;
+                float: left;
+                span {
+                  font-size: 14px;
+                  vertical-align: top;
+                }
+              }
+            }
+          }
+          li:first-child {
+            margin: 1.5em 0 0;
+          }
+      }
+      .input_comment {
+        margin: 8px 0 0;
         width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .comment_submit {
+        width: 100%;
+        margin: 8px 0 0;
+        font-size: 14px;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        display: block;
+        line-height: 48px;
+        cursor: pointer;
       }
     }
   }
