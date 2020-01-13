@@ -1,8 +1,53 @@
 .show-wrapper
   = render "header"
-  .main-box
+  .card
+    = image_tag @post.image.url
+  .about
+    .tip
+      %h3
+        ABOUT
+    %p
+      = @post.text
+  .map_box
+    .tip
+      %h3
+        MAP
     = render "map"
-    .card
-      = image_tag @post.image.url
+  .comments
+    .tip
+      %h3
+        COMMENT
+    .comments__box
+      %ul.comments__box__content
+        %li.clearfix
+          = link_to "", class: "user-icon-area" do
+            =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
+            .user-name
+              次郎
+          .comment
+            .comment__text
+              = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+            .icons.clearfix
+              .time
+                %i.far.fa-clock
+                %span
+                  5日前
+        %li.clearfix
+          = link_to "", class: "user-icon-area" do
+            =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
+            .user-name
+              太郎
+          .comment
+            .comment__text
+              = "いいいいいいいいいいいいいいい"
+            .icons.clearfix
+              .time
+                %i.far.fa-clock
+                %span
+                  5日前
+      .comments__area
+        = form_for "" do |f|
+          = f.text_area "", class: "input_comment"
+          = f.submit "コメントする", class: "comment_submit"
 
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap"}
