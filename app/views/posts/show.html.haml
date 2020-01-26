@@ -50,7 +50,7 @@
         = form_for "" do |f|
           = f.text_area "", class: "input_comment"
           = f.submit "コメントする", class: "comment_submit"
-    - if @post.user == current_user
+    - if @post.user == current_user || current_user.admin?
       = link_to post_path{@post.id}, method: :delete, class: "delete_button", data: { confirm: "この投稿を取り消します。よろしいですか？" } do
         削 除
 
