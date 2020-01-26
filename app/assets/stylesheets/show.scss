@@ -47,6 +47,7 @@
       padding: 24px;
       background-color: rgba(117,212,242,0.8);
       margin-top: 30px;
+      margin-bottom: 30px;
       &__content {
         list-style: none;
         margin-bottom: 20px;
@@ -142,5 +143,16 @@
         cursor: pointer;
       }
     }
+  }
+  .delete_button {
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    color: #fffdf9;
+    background-color: #ea352d;
+    text-decoration: none;
   }
 }

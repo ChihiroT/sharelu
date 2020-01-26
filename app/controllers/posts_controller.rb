@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_params, only: [:show]
+  before_action :set_params, only: [:show, :destroy]
 
   def index
     @posts = Post.order("created_at DESC").page(params[:page]).per(6)
@@ -20,6 +20,14 @@ class PostsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    if @post.user =! current_user
+      redirect_to root_path
+    else
+      @post.destroy
+    end
   end
 
   private
