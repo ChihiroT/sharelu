@@ -73,6 +73,7 @@ gem 'dotenv-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'kaminari'
+gem 'fog-aws'
 
 group :production do
   gem 'pg'
