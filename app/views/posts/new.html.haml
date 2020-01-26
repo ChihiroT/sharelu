@@ -1,20 +1,24 @@
+= render "header"
 %body{onload: "initialize()"}
   = form_for (@post) do |f|
-    = f.label :title
-    = f.text_field :title
-    = f.label :image
-    = f.file_field :image
-    = f.label :text
-    = f.text_field :text
-    / 地図を表示させる要素。widthとheightを必ず指定する。
-    %div#map_canvas{:style => "width:450px; height:450px"}
-    %input#place{:size => "20", :type => "text", :value => "東京タワー"}/
-    %button{:onclick => "search()", :type => "button"} 検索
-    %br/
-    緯度：
-    = f.text_field :latitude, id:"lat"
-    経度：
-    = f.text_field :longitude, id:"lng"
+    .post_box
+      .post_box__title
+        .post_box__title__area
+          = f.label "タイトル"
+          = f.text_field :title, class: "input"
+      .post_box__image
+        = f.label "画像選択"
+        = f.file_field :image
+      .post_box__text
+        = f.label "思い出やエピソード"
+        = f.text_field :text
+      / 地図を表示させる要素。widthとheightを必ず指定する。
+      %div#map_canvas{:style => "width:450px; height:450px"}
+      %input#place{size: "20", type: "text"}/
+      %button{:onclick => "search()", :type => "button"} 検索
+      %br/
+      = f.hidden_field :latitude, id:"lat"
+      = f.hidden_field :longitude, id:"lng"
     / initialize()関数を定義
     :javascript
       var map;
