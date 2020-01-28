@@ -6,7 +6,7 @@
         .post_box__title
           .post_box__title__area
             = f.label "タイトル"
-            = f.text_field :title, class: "input"
+            = f.text_field :title, class: "input", placeholder: "20文字以内"
         .post_box__image
           .post_box__image__area
             = f.file_field :image
