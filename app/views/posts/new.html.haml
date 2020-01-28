@@ -16,7 +16,7 @@
         .post_box__text
           .post_box__text__area
             = f.label "思い出やエピソード"
-            = f.text_area :text, class: "input"
+            = f.text_area :text, class: "input", placeholder: "200文字以内"
         / 地図を表示させる要素。widthとheightを必ず指定する。
         .place_input
           %input#place{size: "20", type: "text", placeholder: "お店の名前や住所を入力して検索して下さい"}
