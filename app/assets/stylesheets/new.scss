@@ -34,13 +34,8 @@
         margin-top: 20px;
         width: 60%;
         margin: 20px auto;
-        &__area {
-          width: 100%;
-          height: 200px;
-          background-color: blue;
-          color: #fff;
-          text-align: center;
-          line-height: 200px;
+        img {
+          margin-right: 20px;
         }
       }
     }
