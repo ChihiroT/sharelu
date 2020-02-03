@@ -20,6 +20,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.includes(:user)
+    @comment = Comment.new
+    @posts = @user.posts.where.not(id: @post.id).order("created_at DESC").limit(6)
   end
 
   def destroy
@@ -38,5 +41,6 @@ class PostsController < ApplicationController
 
   def set_params
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 end
