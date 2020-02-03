@@ -1,7 +1,11 @@
 .show-wrapper
   = render "header"
-  .card
-    = image_tag @post.image.url
+  .photo
+    .tip
+      %h3
+        PHOTO
+    .card
+      = image_tag @post.image.url
   .about
     .tip
       %h3
@@ -19,40 +23,56 @@
       %h3
         COMMENT
     .comments__box
-      %ul.comments__box__content
-        %li.clearfix
-          = link_to "", class: "user-icon-area" do
-            =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
-            .user-name
-              次郎
-          .comment
-            .comment__text
-              = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-            .icons.clearfix
-              .time
-                %i.far.fa-clock
-                %span
-                  5日前
-        %li.clearfix
-          = link_to "", class: "user-icon-area" do
-            =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
-            .user-name
-              太郎
-          .comment
-            .comment__text
-              = "いいいいいいいいいいいいいいい"
-            .icons.clearfix
-              .time
-                %i.far.fa-clock
-                %span
-                  5日前
-      .comments__area
-        = form_for "" do |f|
-          = f.text_area "", class: "input_comment"
-          = f.submit "コメントする", class: "comment_submit"
-    - if user_signed_in?
-      - if @post.user == current_user || current_user.admin?
-        = link_to post_path{@post.id}, method: :delete, class: "delete_button", data: { confirm: "この投稿を取り消します。よろしいですか？" } do
-          削 除
+      - if @comments.present?
+        %ul.comments__box__content
+          - @comments.each do |c|
+            - if c.present?
+              %li.clearfix
+                = link_to "", class: "user-icon-area" do
+                  =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
+                  .user-name
+                    = c.user.name
+                .comment
+                  .comment__text
+                    = c.text
+                  .icons.clearfix
+                    .time
+                      %i.far.fa-clock
+                      %time
+                        = c.created_at.strftime("%Y/%m/%d %H:%M")
+      - else
+        %h4
+          まだコメントはありません
+      - if user_signed_in?
+        .comments__area
+          = form_for [@post, @comment] do |f|
+            = f.text_area :text, class: "input_comment"
+            = f.hidden_field :post_id
+            = f.submit "コメントする", class: "comment_submit"
+  - if user_signed_in?
+    - if @post.user == current_user || current_user.admin?
+      = link_to post_path{@post.id}, method: :delete, class: "delete_button", data: { confirm: "この投稿を取り消します。よろしいですか？" } do
+        削 除
+  .contributor
+    .tip
+      %h3
+        CONTRIBUTOR
+    .contributor_info
+      .contributor_info-icon
+        = link_to "", class: "user-icon-area" do
+          =image_tag "member_photo_noimage_thumb.png", class: "user-icon"
+          .user-name
+            = @post.user.name
+      - if @posts.present?
+        %h4
+          = "#{@post.user.name}さんの他の投稿"
+        .contributor_info-photo
+          - @posts.each do |post|
+            .mini_photo
+              = link_to post_path(post.id) do
+                =image_tag post.image.url
+      - else
+        %h4
+          = "#{@post.user.name}さんの他の投稿はまだありません"
 
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap"}
