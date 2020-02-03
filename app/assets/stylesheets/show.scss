@@ -156,17 +156,6 @@
       }
     }
   }
-  .delete_button {
-    margin: auto;
-    width: 100px;
-    height: 50px;
-    display: block;
-    line-height: 50px;
-    text-align: center;
-    color: #fffdf9;
-    background-color: #ea352d;
-    text-decoration: none;
-  }
   .contributor {
     width: 700px;
     margin: auto;
@@ -222,5 +211,16 @@
         }
       }
     }
+  }
+  .delete_button {
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    color: #fffdf9;
+    background-color: #ea352d;
+    text-decoration: none;
   }
 }
